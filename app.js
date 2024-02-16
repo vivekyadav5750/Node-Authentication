@@ -8,8 +8,8 @@ import passport from 'passport'
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 
 import { connectUsingMongoose } from './config/mongodb.js'
-import router from "./src/routes/routes.js"
-import authrouter from "./src/routes/authRoutes.js"
+import router from "./routes/routes.js"
+import authrouter from "./routes/authRoutes.js"
 
 //CONFIG env
 dotenv.config()
@@ -54,7 +54,7 @@ passport.deserializeUser((user, done) => {
 // Set Templates
 app.set("view engine", "ejs");  // Define template engine 
 app.use(ejsLayouts);            // Use base template
-app.set("views", path.join(path.resolve(),'src', "views")); // Define template directory
+app.set("views", path.join(path.resolve(), "views")); // Define template directory
 
 //connect DB
 connectUsingMongoose()

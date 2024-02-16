@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
-import {transporter} from "../../config/nodemailerConfig.js";
+import {transporter} from "../config/nodemailerConfig.js";
 import dotenv from "dotenv";
 dotenv.config();
 
