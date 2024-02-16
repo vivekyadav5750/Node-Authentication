@@ -47,22 +47,22 @@ CLIENT_URL=http://localhost:3000/auth/login/success
 ## Folder
   ```csharp
 node-authentication/
-│
 ├── config/                  # Configuration files
 │   └── mongodb.js           # MongoDB configuration
 │
-├── src/                     # Source code
-│   ├── controllers/         # Controller logic
-│   ├── models/              # Database models
-│   ├── routes/              # Route definitions
-│   ├── views/               # EJS views
-│   └── app.js               # Express application setup
+├── controllers/             # Controller logic
+├── models/                  # Database models
+├── routes/                  # Route definitions
+├── views/                   # EJS views
+├── app.js                   # Express application setup
 │
 ├── public/                  # Static assets
 │
 ├── package.json             # NPM package configuration
 ├── README.md                # Project README file
-└── .gitignore               # Git ignore configuration
+├── .gitignore               # Git ignore configuration
+└── .env                     # Environment variables file
+
 ```
 
 ## Installation
