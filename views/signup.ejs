@@ -1,6 +1,9 @@
 
 <section>
     <h1>Sign Up</h1>
+    <% if (message) { %>
+        <p><%= message %></p>
+    <% } %>
     <form action="/user/signup" method="post">
         <input type="text" name="username" placeholder="username" autocomplete="off" required><br>
         <input type="email" name="email" placeholder="Email" autocomplete="off" required><br>

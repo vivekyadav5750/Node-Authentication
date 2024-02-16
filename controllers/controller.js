@@ -7,7 +7,7 @@ dotenv.config();
 
 export  class UserGetController {
     getSignUpPage = (req, res) => {
-        res.render("signup");
+        res.render("signup",{ message: "" });
     }
 
     getSignInPage = (req, res) => {
@@ -55,6 +55,11 @@ export  class UserPostController {
         const { username, email, password,cpassword } = req.body;
         if (password !== cpassword) {
             return res.status(400).render("signup",{message:"Passwords don't match"});
+        }
+        //check if user already exists
+        const existingUser = await User.findOne({ email: email });
+        if (existingUser) {
+            return res.status(400).render("signup",{message:"User already exists"});
         }
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username, email,password:hashedPassword });
