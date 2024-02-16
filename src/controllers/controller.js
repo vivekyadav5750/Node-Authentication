@@ -52,7 +52,10 @@ export  class UserPostController {
     
     //sign up
     createUser = async (req, res) => {
-        const { username, email, password } = req.body;
+        const { username, email, password,cpassword } = req.body;
+        if (password !== cpassword) {
+            return res.status(400).render("signup",{message:"Passwords don't match"});
+        }
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username, email,password:hashedPassword });
         try {
@@ -91,7 +94,7 @@ export  class UserPostController {
             const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
             
             if (!isPasswordCorrect)
-                return res.status(400).render("signin",{message:"Invalid credentials"});
+                return res.status(400).render("signin",{message:"Invalid credentials || Incorrect Password"});
             req.session.userEmail = email;
             res.redirect('/user/homepage');
             
