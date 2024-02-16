@@ -1,6 +1,6 @@
 import passport from 'passport';
 import express from 'express';
-import {googleSignInController} from '../controllers/authcontroller.js';
+import {googleSignInController} from '../controllers/authController.js';
 
 const authrouter = express.Router()
 const googleSignIn = new googleSignInController()
